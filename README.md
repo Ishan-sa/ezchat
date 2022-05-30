@@ -1,0 +1,2 @@
+# ezchat
+Chat with ease.
