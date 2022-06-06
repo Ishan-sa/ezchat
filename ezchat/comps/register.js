@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from "../firebase";
+import { setDoc, doc } from 'firebase/firestore';
 
 const Form = styled.form`
     display: flex;
@@ -36,19 +37,23 @@ export default function Register() {
     const { name, email, password, error, loading } = data;
 
     const handleChange = e => {
-        setData({ ...data, [e.target.name]: e.target.value })
+        setData({ ...data, [e.target.name]: e.target.value });
     }
 
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setData({ ...data, error: null, loading: true })
         if (!name || !email || !password) {
             setData({ ...data, error: 'All fields are required' })
         }
         try {
-            const result = await createUserWithEmailAndPassword(auth, email, password);
-            console.log(result.user);
-        } catch (error) {
+            const result = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+            // console.log(result.user);
+        } catch (err) {
 
         }
     }
