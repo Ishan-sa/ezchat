@@ -47,7 +47,8 @@ a {
   text-align: center;
 }
 
-.regisBtn {
+.regisBtn,
+.loginBtn {
   padding: 10px 20px;
   border: 0;
   border-radius: 8px;
@@ -60,6 +61,11 @@ a {
 }
 
 .regisBtn:hover {
+  background-color: #b1a200;
+  scale: 0.9;
+}
+
+.loginBtn:hover {
   background-color: #b1a200;
   scale: 0.9;
 }
